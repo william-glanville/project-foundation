@@ -1,0 +1,85 @@
+schema:
+  name: inventory_report
+  version: '1.0'
+  owner: inventory
+  description: Repository inventory report contract.
+root:
+  type: object
+  required:
+  - report_metadata
+  - inventory
+  additional_properties: false
+  properties:
+    report_metadata:
+      external_ref: report_metadata.schema.yaml#/definitions/report_metadata
+    inventory:
+      type: object
+      required:
+      - project_name
+      - project_root
+      - summary
+      - languages
+      - frameworks
+      - build_systems
+      - excluded_paths
+      - generated_content
+      - uninspected_content
+      additional_properties: false
+      properties:
+        project_name:
+          type: string
+        project_root:
+          type: string
+        summary:
+          type: object
+          required:
+          - files_scanned
+          - directories_scanned
+          - files_total
+          - directories_total
+          properties:
+            files_scanned:
+              type: integer
+              minimum: 0
+            directories_scanned:
+              type: integer
+              minimum: 0
+            files_total:
+              type: integer
+              minimum: 0
+            directories_total:
+              type: integer
+              minimum: 0
+        languages:
+          type: array
+          items:
+            type: object
+            required:
+            - name
+            - file_count
+            properties:
+              name:
+                type: string
+              file_count:
+                type: integer
+                minimum: 0
+        frameworks:
+          type: array
+          items:
+            type: string
+        build_systems:
+          type: array
+          items:
+            type: string
+        excluded_paths:
+          type: array
+          items:
+            type: string
+        generated_content:
+          type: array
+          items:
+            type: string
+        uninspected_content:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,86 @@
+schema:
+  name: final_report
+  version: '1.0'
+  owner: reporting
+  description: final_report contract.
+root:
+  type: object
+  required:
+  - report_metadata
+  - pipeline
+  additional_properties: false
+  properties:
+    report_metadata:
+      external_ref: report_metadata.schema.yaml#/definitions/report_metadata
+    pipeline:
+      type: object
+      required:
+      - name
+      - version
+      - overall_status
+      - stage_results
+      - recommendations
+      - next_actions
+      additional_properties: false
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+        overall_status:
+          type: string
+          enum:
+          - pass
+          - restricted
+          - blocked
+          - failed
+        stage_results:
+          type: object
+          required:
+          - inventory
+          - security
+          - classification
+          - formatting
+          - consistency
+          - documentation
+          - architecture
+          - governance
+          properties:
+            inventory: &id001
+              type: object
+              required:
+              - status
+              - report
+              - finding_count
+              additional_properties: false
+              properties:
+                status:
+                  type: string
+                  enum:
+                  - complete
+                  - partial
+                  - failed
+                  - skipped
+                  - pass
+                  - restricted
+                  - blocked
+                report:
+                  type: string
+                finding_count:
+                  type: integer
+                  minimum: 0
+            security: *id001
+            classification: *id001
+            formatting: *id001
+            consistency: *id001
+            documentation: *id001
+            architecture: *id001
+            governance: *id001
+        recommendations:
+          type: array
+          items:
+            type: string
+        next_actions:
+          type: array
+          items:
+            type: string

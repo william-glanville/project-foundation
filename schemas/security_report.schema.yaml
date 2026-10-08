@@ -1,0 +1,77 @@
+schema:
+  name: security_report
+  version: '1.0'
+  owner: security
+  description: security_report contract.
+root:
+  type: object
+  required:
+  - report_metadata
+  - security
+  additional_properties: false
+  properties:
+    report_metadata:
+      external_ref: report_metadata.schema.yaml#/definitions/report_metadata
+    security:
+      type: object
+      required:
+      - status
+      - scope
+      - summary
+      - findings
+      - directives_reference
+      additional_properties: false
+      properties:
+        status:
+          type: string
+          enum:
+          - pass
+          - restricted
+          - blocked
+        scope:
+          type: object
+          required:
+          - working_tree_scanned
+          - history_scanned
+          - archives_scanned
+          - uninspected_artifacts
+          properties:
+            working_tree_scanned:
+              type: boolean
+            history_scanned:
+              type: boolean
+            archives_scanned:
+              type: boolean
+            uninspected_artifacts:
+              type: integer
+              minimum: 0
+        summary:
+          type: object
+          required:
+          - critical
+          - high
+          - medium
+          - low
+          - informational
+          properties:
+            critical:
+              type: integer
+              minimum: 0
+            high:
+              type: integer
+              minimum: 0
+            medium:
+              type: integer
+              minimum: 0
+            low:
+              type: integer
+              minimum: 0
+            informational:
+              type: integer
+              minimum: 0
+        findings:
+          type: array
+          items:
+            external_ref: finding.schema.yaml#/definitions/finding
+        directives_reference:
+          type: string

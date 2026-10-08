@@ -1,0 +1,41 @@
+schema:
+  name: governance_report
+  version: '1.0'
+  owner: governance
+  description: governance_report contract.
+root:
+  type: object
+  required:
+  - report_metadata
+  - governance
+  additional_properties: false
+  properties:
+    report_metadata:
+      external_ref: report_metadata.schema.yaml#/definitions/report_metadata
+    governance:
+      type: object
+      required:
+      - findings
+      - summary
+      additional_properties: false
+      properties:
+        findings:
+          type: array
+          items:
+            external_ref: finding.schema.yaml#/definitions/finding
+        summary:
+          type: object
+          required:
+          - total
+          - open
+          - remediated
+          properties:
+            total:
+              type: integer
+              minimum: 0
+            open:
+              type: integer
+              minimum: 0
+            remediated:
+              type: integer
+              minimum: 0

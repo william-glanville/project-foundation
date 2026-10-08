@@ -1,0 +1,64 @@
+matrix:
+  version: "1.0"
+  mappings:
+    - extensions: [".cs"]
+      language: csharp
+      formatter_family: dotnet
+      architecture_family: dotnet
+    - extensions: [".java"]
+      language: java
+      formatter_family: jvm
+      architecture_family: jvm
+    - extensions: [".kt", ".kts"]
+      language: kotlin
+      formatter_family: jvm
+      architecture_family: jvm
+    - extensions: [".py"]
+      language: python
+      formatter_family: python
+      architecture_family: python
+    - extensions: [".rs"]
+      language: rust
+      formatter_family: rust
+      architecture_family: rust
+    - extensions: [".js", ".mjs", ".cjs"]
+      language: javascript
+      formatter_family: javascript
+      architecture_family: node
+    - extensions: [".jsx"]
+      language: react_jsx
+      formatter_family: react
+      architecture_family: react
+    - extensions: [".ts", ".mts", ".cts"]
+      language: typescript
+      formatter_family: typescript
+      architecture_family: node
+    - extensions: [".tsx"]
+      language: react_tsx
+      formatter_family: react
+      architecture_family: react
+    - extensions: [".json"]
+      language: json
+      formatter_family: data
+    - extensions: [".yaml", ".yml"]
+      language: yaml
+      formatter_family: data
+    - extensions: [".md"]
+      language: markdown
+      formatter_family: documentation
+  default_exclusions:
+    directories: [".git", "node_modules", "vendor", "bin", "obj", "dist", "build", "target", "coverage", ".cache", ".venv"]
+    patterns: ["*.generated.*", "*.designer.*", "*.g.*", "*.min.js", "*.map"]
+  project_file_indicators:
+    - file: pyproject.toml
+      technologies: [python]
+    - file: package.json
+      technologies: [node]
+    - file: Cargo.toml
+      technologies: [rust]
+    - file: pom.xml
+      technologies: [java, maven]
+    - file: build.gradle
+      technologies: [jvm, gradle]
+    - pattern: "*.csproj"
+      technologies: [dotnet]

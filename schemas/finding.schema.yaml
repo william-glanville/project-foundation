@@ -1,0 +1,279 @@
+schema:
+  name: finding
+  version: '1.0'
+  owner: pipeline-governance
+  description: Shared actionable finding contract.
+root:
+  ref: '#/definitions/finding'
+definitions:
+  finding:
+    type: object
+    required:
+    - id
+    - source
+    - category
+    - title
+    - description
+    - severity
+    - confidence
+    - disposition
+    - owner
+    - locations
+    - remediation
+    - lifecycle
+    additional_properties: false
+    properties:
+      id:
+        type: string
+        pattern: ^[A-Z][A-Z0-9_-]*-[0-9]{4,}$
+      source:
+        ref: '#/definitions/source'
+      category:
+        type: string
+        pattern: ^[a-z][a-z0-9_-]*$
+      subcategory:
+        type: string
+        nullable: true
+      title:
+        type: string
+        min_length: 1
+      description:
+        type: string
+        min_length: 1
+      severity:
+        ref: '#/definitions/severity'
+      confidence:
+        ref: '#/definitions/confidence'
+      disposition:
+        ref: '#/definitions/disposition'
+      owner:
+        ref: '#/definitions/owner'
+      locations:
+        type: array
+        min_items: 1
+        items:
+          ref: '#/definitions/location'
+      affected_components:
+        type: array
+        unique_items: true
+        items:
+          type: string
+      related_findings:
+        type: array
+        unique_items: true
+        items:
+          type: string
+      evidence:
+        type: array
+        items:
+          ref: '#/definitions/evidence'
+      remediation:
+        ref: '#/definitions/remediation'
+      lifecycle:
+        ref: '#/definitions/lifecycle'
+      tags:
+        type: array
+        unique_items: true
+        items:
+          type: string
+      attributes:
+        type: object
+        additional_properties:
+          type: string
+  source:
+    type: object
+    required:
+    - agent
+    - report
+    - run_id
+    additional_properties: false
+    properties:
+      agent:
+        type: string
+      report:
+        type: string
+      run_id:
+        type: string
+      rule_id:
+        type: string
+        nullable: true
+      tool:
+        type: string
+        nullable: true
+  severity:
+    type: string
+    enum:
+    - critical
+    - high
+    - medium
+    - low
+    - informational
+  confidence:
+    type: string
+    enum:
+    - confirmed
+    - high
+    - medium
+    - low
+  disposition:
+    type: string
+    enum:
+    - open
+    - accepted_risk
+    - suppressed
+    - false_positive
+    - remediated
+  owner:
+    type: object
+    required:
+    - team
+    additional_properties: false
+    properties:
+      team:
+        type: string
+      contact:
+        type: string
+        nullable: true
+  location:
+    type: object
+    required:
+    - path
+    - location_type
+    additional_properties: false
+    properties:
+      path:
+        type: string
+      location_type:
+        type: string
+        enum:
+        - file
+        - directory
+        - archive_member
+        - history
+        - project
+        - external_dependency
+      start_line:
+        type: integer
+        minimum: 1
+        nullable: true
+      end_line:
+        type: integer
+        minimum: 1
+        nullable: true
+      symbol:
+        type: string
+        nullable: true
+      revision:
+        type: string
+        nullable: true
+      history_state:
+        type: string
+        enum:
+        - current
+        - history_only
+        - current_and_history
+        nullable: true
+  evidence:
+    type: object
+    required:
+    - type
+    - summary
+    - protected
+    additional_properties: false
+    properties:
+      type:
+        type: string
+        enum:
+        - static_analysis
+        - pattern_match
+        - configuration_review
+        - dependency_analysis
+        - history_analysis
+        - manual_review
+        - test_result
+        - runtime_observation
+        - other
+      summary:
+        type: string
+      protected:
+        type: boolean
+      artifact_reference:
+        type: string
+        nullable: true
+  remediation:
+    type: object
+    required:
+    - required
+    - guidance
+    - verification
+    additional_properties: false
+    properties:
+      required:
+        type: boolean
+      guidance:
+        type: string
+      verification:
+        type: string
+      due_on:
+        type: string
+        format: date
+        nullable: true
+      assigned_to:
+        ref: '#/definitions/owner'
+        nullable: true
+  lifecycle:
+    type: object
+    required:
+    - created_at
+    - updated_at
+    - review_on
+    - expires_on
+    additional_properties: false
+    properties:
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+      review_on:
+        type: string
+        format: date
+        nullable: true
+      expires_on:
+        type: string
+        format: date
+        nullable: true
+      resolved_at:
+        type: string
+        format: date-time
+        nullable: true
+      resolution_reference:
+        type: string
+        nullable: true
+      suppression:
+        ref: '#/definitions/suppression'
+        nullable: true
+  suppression:
+    type: object
+    required:
+    - rationale
+    - approved_by
+    - approved_at
+    - review_on
+    - expires_on
+    additional_properties: false
+    properties:
+      rationale:
+        type: string
+      approved_by:
+        ref: '#/definitions/owner'
+      approved_at:
+        type: string
+        format: date-time
+      review_on:
+        type: string
+        format: date
+      expires_on:
+        type: string
+        format: date

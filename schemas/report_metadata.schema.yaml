@@ -1,0 +1,41 @@
+schema:
+  name: report_metadata
+  version: '1.0'
+  owner: pipeline-governance
+  description: Shared report metadata contract.
+root:
+  ref: '#/definitions/report_metadata'
+definitions:
+  report_metadata:
+    type: object
+    required:
+    - generated_at
+    - run_id
+    - agent
+    - agent_version
+    - status
+    additional_properties: false
+    properties:
+      generated_at:
+        type: string
+        format: date-time
+      run_id:
+        type: string
+        min_length: 1
+      agent:
+        type: string
+        min_length: 1
+      agent_version:
+        type: string
+        min_length: 1
+      status:
+        type: string
+        enum:
+        - complete
+        - partial
+        - failed
+        - skipped
+      notes:
+        type: array
+        items:
+          type: string

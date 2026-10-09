@@ -44,3 +44,8 @@ catalog:
     purpose: Reconcile objectives, vocabulary, contracts, decisions, prompts, schemas,
       tests, and implementation.
     agent: agents/drift/AGENT_DRIFT.md
+  - id: artifact-classification
+    owner: architecture
+    purpose: Optional advisory layer classification (necessity, ownership, evidence,
+      transitions) for artifacts; not binding unless accepted by ADR.
+    guide: docs/architecture/RESPONSIBILITY_MODEL.md

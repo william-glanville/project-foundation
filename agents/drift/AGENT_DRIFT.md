@@ -40,6 +40,7 @@ Perform the final reconciliation stage before reporting. Detect contradictions b
 - Proposed material may produce a finding but cannot impose an obligation.
 - Distinguish representation differences from behavioural contradictions.
 - Report by default. Apply corrections only when explicitly authorized.
+- Verify before repairing: when reconciling drift, confirm the earliest valid state with evidence before proposing a fix, and do not silently repair an underlying artifact without authorization.
 - Do not redesign architecture, rename domain concepts, alter contracts, or change tests to conceal drift.
 
 ## Output

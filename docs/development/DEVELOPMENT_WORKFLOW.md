@@ -8,6 +8,6 @@
 6. Run targeted checks, then proportionate regression checks.
 7. Review the diff for scope, security, contract, and documentation drift.
 8. Update project state and decisions factually.
-9. Report exact results.
+9. Report exact results, optionally using `docs/templates/CHECKPOINT.template.md`.
 
 Do not continue automatically into the next slice.

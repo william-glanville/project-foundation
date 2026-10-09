@@ -2,6 +2,8 @@
 
 ## Objective
 
+If `references/` is absent or contains no reviewable files, stop with `BLOCKED_BY_MISSING_OR_UNREADABLE_INPUT`. Do not create reference content or infer missing sources.
+
 Review the active project-foundation document set and all material added under `references/`. Propose and apply a narrow integration that creates one cohesive, readable, non-duplicative foundation for an agent-driven project. Preserve project focus and prevent authority, vocabulary, prompt, schema, and workflow drift.
 
 ## Safety and mutation limits

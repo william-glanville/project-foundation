@@ -23,8 +23,6 @@ pipeline:
     - agents/**
     github:
     - .github/**
-    reference_material:
-    - references/**
     non_authoritative:
     - README.md
     - MERGE_ASSESSMENT.md

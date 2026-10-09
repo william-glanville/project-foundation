@@ -8,11 +8,11 @@ Foundation initialization
 
 ## Current milestone
 
-Complete project-specific objectives, vocabulary, contracts, commands, and accepted decisions.
+Reference integration completed and source tree retired; project-specific initialization remains pending.
 
 ## Active work item
 
-Initialize this template for the target repository.
+Human review and commit of the self-contained foundation baseline.
 
 ## Completed milestones
 
@@ -20,6 +20,8 @@ Initialize this template for the target repository.
 - Sanitization pipeline installed
 - Shared report and finding schemas installed
 - Drift-control stage installed
+- Reference integration completed and validated
+- Reference source tree retired after provenance capture
 
 ## Deferred work
 
@@ -35,7 +37,7 @@ Record accepted constraints and link to their authority.
 
 ## Next bounded task
 
-Complete `PROJECT_OBJECTIVES.md` and `VOCABULARY.md`, then run Inventory and Security in read-only mode.
+After human review and commit, complete `PROJECT_OBJECTIVES.md` and `VOCABULARY.md`, then run Inventory and Security in read-only mode.
 
 ## Last updated
 

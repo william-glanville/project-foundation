@@ -1,51 +1,57 @@
 catalog:
-  version: '1.2'
+  version: '1.4'
+  standard: docs/governance/TASK_DECLARATION_STANDARD.md
+  skill_roots:
+  - .github/skills
   policy:
     discovery_required: true
     read_before_use: true
+    task_declaration_required: true
     project_extensions_allowed: true
+    accepted_authority_required: true
   skills:
-  - id: security-review
-    owner: security
-    purpose: Scan for exposure risks and generate sanitization directives.
-    agent: agents/security/AGENT_SECURITY.md
-  - id: architecture-review
-    owner: architecture
-    purpose: Review boundaries, dependency direction, coupling, and architectural
-      drift.
-    agent: agents/architecture/AGENT_ARCHITECTURE.md
   - id: adr-authoring
+    type: governance
+    path: .github/skills/adr-authoring/SKILL.md
     owner: governance
-    purpose: Create or revise ADRs with status, consequences, and implementation alignment.
-    guide: docs/templates/ADR.template.md
-  - id: contract-review
-    owner: governance
-    purpose: Review contract ownership, responsibilities, exclusions, compatibility,
-      and tests.
-    guide: contracts/CONTRACT.template.md
-  - id: testing-validation
-    owner: development
-    purpose: Select and execute targeted and regression validation gates.
-    guide: docs/development/VALIDATION_GATES.md
-  - id: schema-review
-    owner: governance
-    purpose: Check schema syntax, dependencies, enums, references, and manifest alignment.
-    guide: schemas/INDEX.md
-  - id: documentation-review
-    owner: documentation
-    purpose: Create factual documentation with source lineage and security restrictions.
-    agent: agents/documentation/AGENT_DOCUMENTATION.md
-  - id: consistency-review
-    owner: consistency
-    purpose: Detect cross-file terminology and representation contradictions.
-    agent: agents/consistency/AGENT_CONSISTENCY.md
-  - id: drift-review
-    owner: drift
-    purpose: Reconcile objectives, vocabulary, contracts, decisions, prompts, schemas,
-      tests, and implementation.
-    agent: agents/drift/AGENT_DRIFT.md
-  - id: artifact-classification
+    mode: decision-governance
+  - id: architecture-review
+    type: review
+    path: .github/skills/architecture-review/SKILL.md
     owner: architecture
-    purpose: Optional advisory layer classification (necessity, ownership, evidence,
-      transitions) for artifacts; not binding unless accepted by ADR.
-    guide: docs/architecture/RESPONSIBILITY_MODEL.md
+    mode: review
+  - id: contract-change
+    type: governance
+    path: .github/skills/contract-change/SKILL.md
+    owner: governance
+    mode: governed-change
+  - id: testing-and-validation
+    type: validation
+    path: .github/skills/testing-and-validation/SKILL.md
+    owner: development
+    mode: validation
+  - id: completion-checkpoint
+    type: reporting
+    path: .github/skills/completion-checkpoint/SKILL.md
+    owner: governance
+    mode: reporting
+  - id: artifact-package-verification
+    type: verification
+    path: .github/skills/artifact-package-verification/SKILL.md
+    owner: governance
+    mode: read-only-verification
+  - id: backend-vertical-slice
+    type: implementation
+    path: .github/skills/backend-vertical-slice/SKILL.md
+    owner: development
+    mode: implementation
+  - id: frontend-vertical-slice
+    type: implementation
+    path: .github/skills/frontend-vertical-slice/SKILL.md
+    owner: development
+    mode: implementation
+  - id: prompt-change-review
+    type: review
+    path: .github/skills/prompt-change-review/SKILL.md
+    owner: governance
+    mode: governed-change

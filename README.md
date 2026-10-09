@@ -12,6 +12,6 @@ A reusable governance, development, sanitization, drift-control, and reporting b
 4. Add exact build, format, lint, and test commands.
 5. Add accepted contracts and ADRs, then review `SKILL_CATALOG.yaml`.
 6. Run inventory and security in read-only mode before enabling mutation stages.
-7. Place prior project guides and agent skills under `references/`, then run the supplied Copilot integration prompt.
+7. Optional: when migrating prior project material, create a temporary `references/` directory, place source material there, and run the supplied Copilot reference-integration prompt. After integration, validation, and closeout, the directory may be deleted.
 
 The framework must not infer project objectives from implementation alone.

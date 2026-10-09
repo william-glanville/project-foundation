@@ -4,7 +4,7 @@
 
 Advisory. This guide is not mandatory and does not change `docs/governance/AUTHORITY_ORDER.md`. A project adopts it as binding only through an Accepted ADR that references this file. Until then, the Architecture Agent MAY use it as an analysis technique when classifying artifacts or reviewing boundaries.
 
-Source: adapted from generic material under `references/architecture.references/` and `references/docs.references/architecture/`. Project-specific identifiers, dates, and example decisions from that material were removed. See `docs/governance/REFERENCE_INTEGRATION_REGISTER.md`.
+Historical source: adapted during foundation integration from the reference paths recorded in `docs/governance/REFERENCE_INTEGRATION_REGISTER.md`. The original reference tree is not required after integration.
 
 ## Purpose
 

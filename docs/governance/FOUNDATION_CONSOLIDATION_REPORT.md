@@ -15,7 +15,7 @@ Records the outcome of reviewing and integrating `references/` into the active P
 
 All of the above: the source material was project-specific (Flask/React/SQL Server illustration-generator project, Zed skill invocation syntax, a second `AGENTS.md`-style file, product workflows and state machines). Only the generic principle was extracted; technology names, commands, database/schema names, and product workflow states were excluded per Objective 2.4 (separate generic and project-specific content).
 
-## What remained a reference (RETAIN_REFERENCE)
+## Material deliberately not integrated (RETAIN_REFERENCE)
 
 The majority of `references/docs.references/` (architecture, workflow, and skill files tied to the originating Python/Flask + React illustration-generator product) and `references/skills.references/INDEX.md` / per-skill files for vertical-slice implementation. These remain valuable only if this repository is ever used to onboard that specific project; they are not generic foundation material. See the register for the full list.
 
@@ -28,6 +28,15 @@ The majority of `references/docs.references/` (architecture, workflow, and skill
 ## What was quarantined
 
 Nothing. A pattern-based security scan (credentials, private keys, tokens, connection strings, internal hosts/IPs) across all 42 files in `references/` found no matches, so no quarantine was required.
+
+## Reference retirement
+
+- The `references/` source tree was used only for the completed integration recorded above and in `docs/governance/REFERENCE_INTEGRATION_REGISTER.md`.
+- All generic guidance selected for continued use is now owned by active framework files (see "What was integrated" and the topic-ownership table below); the source tree is not the current owner of any active rule.
+- `RETAIN_REFERENCE` identifies material deliberately not integrated or rejected during review, not material awaiting future integration.
+- Retained source files are not required to operate, govern, validate, extend, or maintain the generic framework.
+- `docs/governance/REFERENCE_INTEGRATION_REGISTER.md` remains historical provenance after the source tree is deleted; its rows and dispositions stay intact.
+- `references/` may be deleted after the retirement corrections in this report and the register pass validation.
 
 ## Human decisions (resolved)
 

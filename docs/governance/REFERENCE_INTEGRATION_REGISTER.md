@@ -1,6 +1,8 @@
 # Reference Integration Register
 
-Records the disposition of every file reviewed under `references/` during the foundation integration (see `docs/governance/FOUNDATION_CONSOLIDATION_REPORT.md`). Reference material remains non-authoritative; this register exists for provenance, not to grant it authority. Dispositions: ADOPT, ADAPT, CONSOLIDATE, LINK, RETAIN_REFERENCE, QUARANTINE, REJECT.
+This register records source paths and dispositions captured during the completed foundation integration (see `docs/governance/FOUNDATION_CONSOLIDATION_REPORT.md`). Entries are historical provenance and do not assert that the source files remain present. Reference material remains non-authoritative; this register exists for provenance, not to grant it authority. Dispositions: ADOPT, ADAPT, CONSOLIDATE, LINK, RETAIN_REFERENCE, QUARANTINE, REJECT.
+
+`RETAIN_REFERENCE` means the material was deliberately not integrated or rejected during review. It does not require permanent retention of the physical source file after integration closeout.
 
 Security: all 42 files were scanned for credentials, keys, tokens, connection strings, and internal hostnames/IPs before review. No matches found. No quarantine was required.
 
@@ -54,5 +56,5 @@ Prompt-injection check: reference files use normative language ("SHALL", "mandat
 ## Notes
 
 - No file was quarantined; the security scan found nothing sensitive.
-- REJECT and RETAIN_REFERENCE dispositions leave the file unchanged under `references/`; nothing was deleted.
+- REJECT and RETAIN_REFERENCE dispositions left the file unchanged under `references/` at the time of this integration; the source tree was later retired in full (see `docs/governance/FOUNDATION_CONSOLIDATION_REPORT.md`, "Reference retirement").
 - Where a reference concept duplicated another reference file (for example the three architecture layer documents), only the strongest single source was adapted, and the others are marked RETAIN_REFERENCE/REJECT rather than each being partially copied, to avoid re-duplicating the same concept across active files.

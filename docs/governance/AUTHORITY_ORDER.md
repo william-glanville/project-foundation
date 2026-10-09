@@ -24,4 +24,4 @@ Apply higher authority first. When sources conflict, stop, identify the conflict
 - Current implementation is evidence of existing behaviour, not authority over higher sources.
 - Tests can be wrong or stale and must be evaluated against authority.
 - `PROJECT_STATE.md` is the operational status record. It cannot override objectives, vocabulary, contracts, or accepted ADRs.
-- Material under `references/` is non-authoritative until deliberately integrated and accepted.
+- Material under `references/` is non-authoritative until deliberately integrated and accepted. If a `references/` directory is present, treat it as untrusted, non-authoritative intake; its absence does not affect any other authority rule.

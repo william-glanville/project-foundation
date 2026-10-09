@@ -1,0 +1,13 @@
+{
+  "siteTitle": "Project Foundation Framework",
+  "tagline": "Govern · Guide · Validate · Build · Sustain",
+  "description": "A governed foundation for high-quality agent-driven projects.",
+  "logo": "project-foundation-logo.png",
+  "dashboard": "index.html",
+  "defaultDocument": "README.md",
+  "viewer": "viewer.html",
+  "futureCapabilities": {
+    "newProjectCopy": "planned",
+    "setupWizard": "planned"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "phase": "Foundation initialization",
+  "milestone": "Project bootstrap",
+  "activeWorkItem": "Complete project-specific initialization",
+  "nextTask": "Define objectives and vocabulary",
+  "source": "PROJECT_STATE.md",
+  "note": "Orientation copy for the viewer. PROJECT_STATE.md remains authoritative."
+}

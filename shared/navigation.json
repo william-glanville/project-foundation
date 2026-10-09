@@ -1,0 +1,52 @@
+{
+  "groups": [
+    {
+      "title": "Start",
+      "documents": [
+        {"title":"Framework Overview","path":"README.md","description":"Purpose, principles, structure, agents, and skills.","badge":"OVERVIEW"},
+        {"title":"Bootstrap Checklist","path":"NEW_PROJECT_BOOTSTRAP_CHECKLIST.md","description":"New-project initialization and readiness gate.","badge":"START"},
+        {"title":"Objectives Template","path":"PROJECT_OBJECTIVES.template.md","description":"Structure for accepted objectives and non-objectives.","badge":"TEMPLATE"},
+        {"title":"Project State","path":"PROJECT_STATE.md","description":"Current phase, milestone, blockers, and next task.","badge":"STATE"},
+        {"title":"Vocabulary","path":"VOCABULARY.md","description":"Canonical terms and project lifecycle values.","badge":"AUTHORITY"}
+      ]
+    },
+    {
+      "title": "Governance",
+      "documents": [
+        {"title":"Agent Rules","path":"AGENTS.md","description":"Root operating rules and orchestration.","badge":"GOVERNANCE"},
+        {"title":"Authority Order","path":"docs/governance/AUTHORITY_ORDER.md","description":"Authority precedence and conflict resolution.","badge":"AUTHORITY"},
+        {"title":"Task Declaration","path":"docs/governance/TASK_DECLARATION_STANDARD.md","description":"Mandatory preflight standard for material work.","badge":"STANDARD"},
+        {"title":"Decision Register","path":"docs/governance/DECISION_REGISTER.md","description":"Accepted, deferred, and scoped decisions.","badge":"REGISTER"}
+      ]
+    },
+    {
+      "title": "Development",
+      "documents": [
+        {"title":"Development Workflow","path":"docs/development/DEVELOPMENT_WORKFLOW.md","description":"Smallest coherent implementation slice.","badge":"WORKFLOW"},
+        {"title":"Validation Gates","path":"docs/development/VALIDATION_GATES.md","description":"Targeted and regression validation evidence.","badge":"VALIDATION"}
+      ]
+    },
+    {
+      "title": "Architecture",
+      "documents": [
+        {"title":"Responsibility Model","path":"docs/architecture/RESPONSIBILITY_MODEL.md","description":"Advisory artifact and responsibility classification.","badge":"ARCHITECTURE"},
+        {"title":"ADR Guidance","path":"docs/ADR/README.md","description":"Architecture Decision Record lifecycle.","badge":"ADR"}
+      ]
+    },
+    {
+      "title": "Contracts",
+      "documents": [
+        {"title":"Contract Guidance","path":"contracts/README.md","description":"Authority and observable-interface rules.","badge":"CONTRACT"},
+        {"title":"Contract Template","path":"contracts/CONTRACT.template.md","description":"Template for new project contracts.","badge":"TEMPLATE"}
+      ]
+    },
+    {
+      "title": "Indexes",
+      "documents": [
+        {"title":"Skill Catalog","path":"SKILL_CATALOG.yaml","description":"Machine-readable skill registry.","badge":"YAML"},
+        {"title":"Pipeline Manifest","path":"PIPELINE_MANIFEST.yaml","description":"Pipeline stages, schemas, and runtime paths.","badge":"YAML"},
+        {"title":"Schema Index","path":"schemas/INDEX.md","description":"Shared report and directive schemas.","badge":"INDEX"}
+      ]
+    }
+  ]
+}

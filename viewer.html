@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Project Foundation Framework documentation portal">
+  <title>Documentation · Project Foundation Framework</title>
+  <link rel="stylesheet" href="assets/framework.css">
+</head>
+<body>
+  <a class="skip-link" href="#document-content">Skip to document</a>
+  <div data-shared-header></div>
+  <main class="viewer-layout">
+    <aside class="viewer-sidebar" aria-label="Documentation navigation">
+      <div class="sidebar-top">
+        <div class="sidebar-heading">Documentation</div>
+        <label class="search-box"><span class="visually-hidden">Search documents</span><input id="document-search" type="search" placeholder="Search documentation…" autocomplete="off"></label>
+      </div>
+      <nav id="document-navigation"></nav>
+      <div id="search-empty" class="search-empty" hidden>No matching documents.</div>
+    </aside>
+    <article class="document-shell" aria-live="polite">
+      <header class="document-toolbar">
+        <div class="document-identity">
+          <div id="document-breadcrumb" class="breadcrumb">Documentation</div>
+          <div class="title-line"><span id="document-badge" class="document-badge">FILE</span><h1 id="document-title">Loading document…</h1></div>
+          <dl class="document-meta"><div><dt>Source</dt><dd id="document-source">—</dd></div><div><dt>Category</dt><dd id="document-category">—</dd></div><div><dt>Loaded</dt><dd id="document-loaded">—</dd></div></dl>
+        </div>
+        <div class="toolbar-actions"><a id="raw-document-link" class="shell-button" href="#">View raw</a><a class="shell-button" href="index.html">Dashboard</a></div>
+      </header>
+      <div id="document-status" class="document-status">Loading document…</div>
+      <div class="document-grid">
+        <div id="document-content" class="markdown-body" tabindex="-1"></div>
+        <aside id="page-toc" class="page-toc" aria-label="On this page" hidden><div class="toc-heading">On this page</div><nav id="page-toc-links"></nav></aside>
+      </div>
+      <nav class="document-pager" aria-label="Document paging"><a id="previous-document" class="pager-link" href="#">← Previous</a><a id="next-document" class="pager-link" href="#">Next →</a></nav>
+    </article>
+  </main>
+  <div data-shared-footer></div>
+  <script src="assets/framework-shell.js"></script>
+  <script src="assets/markdown-viewer.js"></script>
+</body>
+</html>

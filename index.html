@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Interactive overview of the Project Foundation Framework">
+  <title>Project Foundation Framework</title>
+  <style>
+    :root{
+      --navy-950:#04101d;--navy-900:#071a2d;--navy-850:#0a2440;--navy-800:#0d3056;
+      --blue-600:#0a78d3;--blue-500:#1798ed;--cyan-400:#47c9e8;--ink:#10263d;
+      --slate:#53677d;--paper:#f5f8fc;--white:#fff;--line:#cfdae7;--soft:#eaf1f8;
+      --shadow:0 14px 36px rgba(7,26,45,.14);--radius:16px;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#dfe8f2;color:var(--ink);font:15px/1.55 "Segoe UI",Inter,Arial,sans-serif}a{color:inherit;text-decoration:none}a:focus-visible{outline:3px solid #ffca38;outline-offset:3px;border-radius:7px}.shell{width:min(1480px,calc(100% - 28px));margin:auto}.dashboard{margin:20px auto;background:var(--paper);box-shadow:0 28px 75px rgba(4,16,29,.28);border-radius:18px;overflow:hidden;border:1px solid #b8c7d8}
+    .hero{position:relative;overflow:hidden;padding:27px 34px;color:#fff;background:radial-gradient(circle at 8% 12%,#1b588b99 0,transparent 31%),linear-gradient(112deg,#06182a 0,#0a2c50 57%,#04111e 100%)}.hero:after{content:"";position:absolute;inset:auto -10% -140px 38%;height:260px;background:radial-gradient(ellipse,#168eea2e 0,transparent 68%);pointer-events:none}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:150px minmax(0,1fr) 240px;gap:28px;align-items:center}.brand-mark{width:132px;height:132px;object-fit:contain;filter:drop-shadow(0 15px 22px #18a5ff55)}.eyebrow{letter-spacing:.33em;text-transform:uppercase;font-weight:650;color:#cce6ff}.hero h1{font-size:clamp(2.2rem,4.4vw,4.3rem);line-height:.98;margin:5px 0 12px;letter-spacing:-.04em}.hero h1 span{color:#2d9ef6}.hero p{max-width:860px;margin:0;color:#d1dfec;font-size:1.08rem}.hero-nav{display:grid;gap:8px}.hero-nav a{padding:10px 13px;border:1px solid #7294b6;background:#09234099;border-radius:9px;font-weight:700;transition:.18s}.hero-nav a:first-child{background:linear-gradient(135deg,#0b72ca,#139ee8);border-color:#57baff}.hero-nav a:hover{transform:translateX(-3px);background:#12436e}
+    main{padding:25px 30px 32px}.intro-grid{display:grid;grid-template-columns:1.15fr 1.15fr .95fr;gap:23px;align-items:stretch}.feature-block{padding:8px 3px}.section-title{margin:0 0 14px;color:#0a3c72;font-size:1.48rem;line-height:1.15}.section-title:after{content:"";display:block;width:44px;height:4px;margin-top:8px;border-radius:3px;background:#168ce3}.feature-block p{color:var(--slate)}.benefits{display:grid;gap:11px}.benefit{display:grid;grid-template-columns:36px 1fr;gap:10px}.benefit-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:#e2f2ff;color:#087aca;font-weight:900}.benefit b{display:block;color:#073d74}.benefit small{color:var(--slate)}
+    .quick-card{padding:18px;border:1px solid #91a8bf;border-radius:14px;background:linear-gradient(145deg,#fff,#edf5fc);box-shadow:var(--shadow)}.quick-card h2{margin:0;color:#132d49}.quick-list{counter-reset:q;display:grid;gap:7px;margin:14px 0}.quick-list a{counter-increment:q;display:grid;grid-template-columns:29px 1fr;align-items:center;gap:8px;padding:5px 7px;border-radius:7px}.quick-list a:before{content:counter(q);display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#167cd7;color:#fff;font-weight:800;font-size:.82rem}.quick-list a:hover{background:#dbeeff}.start-link{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:12px;padding:12px 14px;color:#fff;background:linear-gradient(135deg,#082d5c,#0b69bb);border-radius:10px;font-weight:800}.start-link:hover{filter:brightness(1.14)}
+    .rule{height:1px;background:#9eb0c3;margin:22px 0}.overview-copy{display:grid;grid-template-columns:1.35fr .65fr;gap:35px;align-items:center}.overview-copy p{margin:0;color:var(--slate)}.state-badge{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));gap:0;margin:0 0 17px;border:1px solid #c7d5e2;border-radius:9px;background:#eef4fa;overflow:hidden;box-shadow:0 5px 14px rgba(21,56,88,.07)}.state-badge>a{display:grid;place-items:center;padding:8px 11px;color:#fff;background:#0d6fb9;font-size:.72rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.state-item{padding:7px 11px;border-left:1px solid #c7d5e2}.state-item small{display:block;color:#71879b;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.state-item b{display:block;color:#1a456b;font-size:.76rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.state-badge:hover{border-color:#7daed2}.state-badge>a:hover{background:#095d9c}blockquote{margin:0;padding:5px 0 5px 20px;border-left:4px solid #168ce3;color:#39536b;font-style:italic}
+    .pipeline{display:flex;gap:3px;align-items:stretch;margin-top:18px;overflow-x:auto;padding:2px 16px 3px 0}.stage{--c:#177dd4;position:relative;flex:1 0 116px;min-height:71px;display:grid;place-items:center;text-align:center;padding:12px 19px 12px 24px;color:#fff;background:var(--c);font-weight:800;clip-path:polygon(0 0,calc(100% - 17px) 0,100% 50%,calc(100% - 17px) 100%,0 100%,17px 50%);transition:.16s}.stage:first-child{clip-path:polygon(0 0,calc(100% - 17px) 0,100% 50%,calc(100% - 17px) 100%,0 100%)}.stage:hover{filter:brightness(1.15);transform:translateY(-2px)}.stage:nth-child(2){--c:#c74750}.stage:nth-child(3){--c:#2a966c}.stage:nth-child(4){--c:#6650bd}.stage:nth-child(5){--c:#d09118}.stage:nth-child(6){--c:#158aa2}.stage:nth-child(7){--c:#3d63c4}.stage:nth-child(8){--c:#8d2583}.stage:nth-child(9){--c:#657991}.stage:nth-child(10){--c:#168254}.pipeline-note{margin-top:9px;padding:7px 15px;text-align:center;letter-spacing:.16em;text-transform:uppercase;background:#e3ebf4;border-radius:999px;color:#314b64;font-size:.74rem;font-weight:800}
+    .content-grid{display:grid;grid-template-columns:1.16fr 1.05fr .9fr;gap:21px;margin-top:28px}.panel{padding:17px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 9px 24px rgba(25,52,80,.09)}.panel h2{margin:0 0 13px;color:#0a3c72;font-size:1.34rem}.link-list{display:grid;gap:7px}.link-row{display:grid;grid-template-columns:35px 1fr;gap:9px;align-items:center;padding:8px;border:1px solid transparent;border-radius:9px}.link-row:hover{border-color:#89bde4;background:#edf7ff}.link-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#e6f2fc;color:#117dce;font-weight:900}.link-row b{display:block;color:#0b497f}.link-row small{display:block;color:var(--slate)}
+    .lower-overview{display:grid;grid-template-columns:1.15fr .82fr .8fr;gap:0;margin-top:28px;border-top:1px solid #cdd8e3;border-bottom:1px solid #cdd8e3;background:#f7f9fc}.overview-column{min-width:0;padding:15px 18px 17px}.overview-column+.overview-column{border-left:1px solid #cdd8e3}.overview-column h2{margin:0 0 12px;color:#123c6a;font-size:1.26rem}.overview-column h2:after{content:"";display:block;width:36px;height:3px;margin-top:7px;border-radius:2px;background:#138de0}.repo-code{overflow-x:auto;color:#3f5c77;font:11.4px/1.48 Consolas,"Courier New",monospace}.repo-code .root{color:#147bc2;font-weight:800}.repo-code .line{display:block;min-width:590px;white-space:pre}.repo-code .path{color:#2d5579}.repo-code .folder{color:#1388d3;font-weight:800}.repo-code .comment{color:#8a9bab}.repo-code a{border-radius:3px;transition:background .14s ease}.repo-code a:hover{background:#e9f4fc}.repo-code a:hover .path,.repo-code a:hover .folder{color:#005b9f;text-decoration:underline}.repo-code a:hover .comment{color:#667f94}.doc-list{display:grid;gap:7px}.doc-link{display:grid;grid-template-columns:31px 1fr;gap:9px;align-items:start;padding:3px 0}.doc-link{border-radius:7px;transition:background .16s ease,transform .16s ease}.doc-link:hover{background:#edf6fd;transform:translateX(2px)}.doc-link:hover .doc-name{text-decoration:underline;color:#0879c8}.doc-link:hover .doc-icon{transform:scale(1.08);color:#075f9c}.doc-icon{transition:transform .16s ease,color .16s ease}.doc-icon{width:27px;height:27px;display:grid;place-items:center;color:#0d74bd}.doc-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.doc-name{display:block;color:#173d64;font-size:.82rem;font-weight:850}.doc-desc{display:block;color:#6e8193;font-size:.72rem;line-height:1.28}.cap-card{padding:11px 12px;border-radius:9px}.cap-card+.cap-card{margin-top:10px}.cap-card.skills{background:linear-gradient(135deg,#e9faef,#e0f5ea)}.cap-card.agents{background:linear-gradient(135deg,#f2ecff,#ece6fa)}.cap-head{display:grid;grid-template-columns:29px 1fr;gap:7px;align-items:center;margin-bottom:4px}.cap-icon{display:grid;place-items:center;width:27px;height:27px}.cap-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.skills .cap-icon{color:#07864d}.agents .cap-icon{color:#6442c2}.cap-head b{display:block;color:#173b60}.cap-head small{display:block;color:#63778b;font-size:.68rem}.cap-list{columns:2;column-gap:17px;margin:4px 0 0 35px;padding:0;color:#214666;font-size:.7rem;line-height:1.38}.cap-list li{break-inside:avoid;margin-left:12px}.cap-card{transition:transform .16s ease,box-shadow .16s ease}.cap-card:hover{transform:translateY(-1px);box-shadow:0 6px 15px rgba(26,61,91,.09)}.cap-icon{transition:transform .16s ease}.cap-card:hover .cap-icon{transform:scale(1.08)}.cap-list a:hover{text-decoration:underline;color:#0069ad}.group{margin-top:12px}.group:first-of-type{margin-top:0}.group-name{margin-bottom:6px;color:#687d92;font-size:.72rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.chip-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}.chip{padding:7px 9px;border:1px solid #d1deeb;border-radius:8px;background:#f6f9fc}.chip:hover{border-color:#65abe0;background:#e9f5ff}.chip b{display:block;color:#164d7a;font-size:.88rem}.chip small{color:#687b8e}.skills-panel{background:linear-gradient(150deg,#f7fffb,#eaf8f1)}.agents-panel{margin-top:12px;background:linear-gradient(150deg,#fbf9ff,#f0edfb)}
+    .lower-grid{display:grid;grid-template-columns:1fr 1fr;gap:21px;margin-top:21px}.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.status{padding:10px;border:1px solid var(--line);border-radius:9px;background:#f7fafd}.status span{display:block;color:#187ec7;font-size:.7rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.status b{display:block;margin-top:2px;color:#1c3b56}.status-notice{margin-top:10px;padding:11px;border-left:4px solid #d09118;background:#fff7df;border-radius:7px;color:#6b5317}.principles{display:flex;flex-wrap:wrap;gap:7px}.principle{padding:6px 9px;border-radius:999px;border:1px solid #c7d5e3;background:#f3f7fb;color:#435d74;font-size:.8rem;font-weight:700}
+    footer{display:flex;justify-content:space-between;gap:25px;padding:17px 30px;color:#b9c9d9;background:#071827;font-size:.82rem}.footer-links{display:flex;flex-wrap:wrap;gap:13px}.footer-links a:hover{color:#fff;text-decoration:underline}
+    @media(max-width:1150px){.state-badge{grid-template-columns:auto 1fr 1fr 1fr}.hero-grid{grid-template-columns:125px 1fr}.hero-nav{grid-column:1/-1;grid-template-columns:repeat(4,1fr)}.intro-grid{grid-template-columns:1fr 1fr}.quick-card{grid-column:1/-1}.lower-overview{grid-template-columns:1fr 1fr}.overview-column:last-child{grid-column:1/-1;border-left:0;border-top:1px solid #cdd8e3;display:grid;grid-template-columns:1fr 1fr;gap:12px}.cap-card+.cap-card{margin-top:0}.stage{flex-basis:130px}}
+    @media(max-width:760px){.state-badge{grid-template-columns:1fr}.state-badge>a{place-items:start}.state-item{border-left:0;border-top:1px solid #c7d5e2}.state-item b{white-space:normal}.lower-overview{font-size:.96rem}.dashboard{margin:0;border-radius:0;border:0}.hero{padding:24px 18px}.hero-grid{grid-template-columns:1fr;text-align:center}.brand-mark{margin:auto}.hero-nav{grid-template-columns:1fr 1fr}.hero p{margin:auto}main{padding:20px 15px}.intro-grid,.overview-copy,.lower-grid{grid-template-columns:1fr}.lower-overview{grid-template-columns:1fr}.overview-column+.overview-column{border-left:0;border-top:1px solid #cdd8e3}.overview-column:last-child{grid-column:auto;display:block}.cap-card+.cap-card{margin-top:10px}.cap-list{columns:1}.repo-code{font-size:10.8px}.repo-code .line{min-width:570px}.status-grid{grid-template-columns:1fr}.pipeline{padding-right:0}.stage{flex-basis:125px}footer{flex-direction:column;padding:17px}.tagline{font-size:.85rem;letter-spacing:.21em}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<div class="shell dashboard">
+  <header class="hero">
+    <div class="hero-grid">
+      <img class="brand-mark" src="project-foundation-logo.png" alt="Project Foundation Framework layered logo">
+      <div>
+        <div class="eyebrow">Agent-driven delivery foundation</div>
+        <h1>Project <span>Foundation</span> Framework</h1>
+        <div class="tagline">Govern · Guide · Validate · Build · Sustain</div>
+        <p>Clear authority, defined responsibilities, repeatable processes, durable project memory, and traceable outcomes for high-quality AI-assisted software projects.</p>
+      </div>
+      <nav class="hero-nav" aria-label="Primary navigation">
+        <a href="NEW_PROJECT_BOOTSTRAP_CHECKLIST.md">Start a project</a>
+        <a href="README.md">Read the README</a>
+        <a href="docs/governance/AUTHORITY_ORDER.md">Authority model</a>
+        <a href="SKILL_CATALOG.yaml">Skill catalog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro-grid" aria-label="Framework introduction">
+      <article class="feature-block">
+        <h2 class="section-title">Welcome</h2>
+        <p>The Project Foundation Framework is a reusable, technology-neutral starting point for projects where agents perform substantial analysis, design, implementation, validation, and documentation work.</p>
+        <p>Repository-resident authority, state, vocabulary, contracts, agents, skills, security gates, and validation rules reduce drift without replacing human decisions.</p>
+      </article>
+      <article class="feature-block">
+        <h2 class="section-title">Key benefits</h2>
+        <div class="benefits">
+          <div class="benefit"><span class="benefit-icon">A</span><div><b>Agent-driven</b><small>Optimized for bounded human and agent collaboration.</small></div></div>
+          <div class="benefit"><span class="benefit-icon">G</span><div><b>Governance-first</b><small>Clear authority, decisions, contracts, and responsibility boundaries.</small></div></div>
+          <div class="benefit"><span class="benefit-icon">R</span><div><b>Reusable</b><small>Generic foundation adaptable to varied domains and technologies.</small></div></div>
+          <div class="benefit"><span class="benefit-icon">S</span><div><b>Secure by design</b><small>Security gate, sanitization directives, and untrusted-input controls.</small></div></div>
+          <div class="benefit"><span class="benefit-icon">D</span><div><b>Drift resistant</b><small>Project state, vocabulary, validation evidence, and reconciliation.</small></div></div>
+        </div>
+      </article>
+      <aside class="quick-card">
+        <h2>Quick Start</h2>
+        <div class="quick-list">
+          <a href="README.md">Read the framework overview</a>
+          <a href="NEW_PROJECT_BOOTSTRAP_CHECKLIST.md">Complete the bootstrap checklist</a>
+          <a href="PROJECT_OBJECTIVES.template.md">Define project objectives</a>
+          <a href="VOCABULARY.md">Establish canonical vocabulary</a>
+          <a href="agents/inventory/AGENT_INVENTORY.md">Run Inventory read-only</a>
+          <a href="agents/security/AGENT_SECURITY.md">Run Security read-only</a>
+          <a href="PROJECT_STATE.md">Record the next bounded task</a>
+        </div>
+        <a class="start-link" href="NEW_PROJECT_BOOTSTRAP_CHECKLIST.md"><span>Start here:<br>NEW_PROJECT_BOOTSTRAP_CHECKLIST.md</span><span aria-hidden="true">→</span></a>
+      </aside>
+    </section>
+
+    <div class="rule"></div>
+    <section aria-labelledby="overview-title">
+      <div class="state-badge" aria-label="Project state orientation">
+        <a href="PROJECT_STATE.md">Project state</a>
+        <span class="state-item"><small>Phase</small><b>Foundation initialization</b></span>
+        <span class="state-item"><small>Milestone</small><b>Project bootstrap</b></span>
+        <span class="state-item"><small>Next bounded task</small><b>Define objectives and vocabulary</b></span>
+      </div>
+      <div class="overview-copy">
+        <div><h2 id="overview-title" class="section-title">Framework Overview</h2><p>A governed lifecycle coordinates specialist agents and reusable skills from initial repository evidence through validated reporting. Security is a mandatory gate; authority and evidence remain visible throughout.</p></div>
+        <blockquote>“A well-governed project is not just built. It remains understandable, reviewable, and safe to extend.”</blockquote>
+      </div>
+      <div class="pipeline" aria-label="Framework lifecycle">
+        <a class="stage" href="agents/inventory/AGENT_INVENTORY.md">Inventory</a>
+        <a class="stage" href="agents/security/AGENT_SECURITY.md">Security</a>
+        <a class="stage" href="agents/classification/AGENT_CLASSIFICATION.md">Classification</a>
+        <a class="stage" href="agents/formatting/AGENT_FORMATTING.md">Formatting</a>
+        <a class="stage" href="agents/consistency/AGENT_CONSISTENCY.md">Consistency</a>
+        <a class="stage" href="agents/documentation/AGENT_DOCUMENTATION.md">Documentation</a>
+        <a class="stage" href="agents/architecture/AGENT_ARCHITECTURE.md">Architecture</a>
+        <a class="stage" href="agents/governance/AGENT_GOVERNANCE.md">Governance</a>
+        <a class="stage" href="agents/drift/AGENT_DRIFT.md">Drift</a>
+        <a class="stage" href="agents/reporting/AGENT_REPORTING.md">Reporting</a>
+      </div>
+      <div class="pipeline-note">Security gate · Sanitization directives · Authority-driven · Anti-drift · Reproducible results</div>
+    </section>
+
+    <section class="lower-overview" aria-label="Repository overview and navigation">
+      <article class="overview-column">
+        <h2>Repository Structure</h2>
+        <div class="repo-code" aria-label="Annotated repository tree">
+          <span class="line root">/</span>
+          <a class="line" href="AGENTS.md"><span class="path">├── AGENTS.md</span>                         <span class="comment"># Framework orchestrator</span></a>
+          <a class="line" href="PROJECT_OBJECTIVES.template.md"><span class="path">├── PROJECT_OBJECTIVES.template.md</span>     <span class="comment"># Template for new projects</span></a>
+          <a class="line" href="PROJECT_STATE.md"><span class="path">├── PROJECT_STATE.md</span>                   <span class="comment"># Current project state</span></a>
+          <a class="line" href="VOCABULARY.md"><span class="path">├── VOCABULARY.md</span>                      <span class="comment"># Canonical terminology</span></a>
+          <a class="line" href="NEW_PROJECT_BOOTSTRAP_CHECKLIST.md"><span class="path">├── NEW_PROJECT_BOOTSTRAP_CHECKLIST.md</span>  <span class="comment"># Startup guide</span></a>
+          <a class="line" href="SKILL_CATALOG.yaml"><span class="path">├── SKILL_CATALOG.yaml</span>                 <span class="comment"># Available skills</span></a>
+          <a class="line" href="README.md"><span class="path">├── README.md</span>                           <span class="comment"># This file</span></a>
+          <a class="line" href="index.html"><span class="path">├── index.html</span>                          <span class="comment"># Interactive dashboard</span></a>
+          <a class="line" href=".github/copilot-instructions.md"><span class="folder">├── .github/</span>                            <span class="comment"># Copilot config and skills</span></a>
+          <a class="line" href=".github/skills/architecture-review/SKILL.md"><span class="folder">│   ├── skills/</span>                         <span class="comment"># Reusable task skills</span></a>
+          <a class="line" href=".github/instructions/security-gate.instructions.md"><span class="folder">│   └── instructions/</span>                   <span class="comment"># Persistent instructions</span></a>
+          <a class="line" href="agents/inventory/AGENT_INVENTORY.md"><span class="folder">├── agents/</span>                             <span class="comment"># Specialized framework agents</span></a>
+          <a class="line" href="contracts/README.md"><span class="folder">├── contracts/</span>                          <span class="comment"># Contract templates and guidance</span></a>
+          <a class="line" href="docs/governance/AUTHORITY_ORDER.md"><span class="folder">├── docs/</span>                               <span class="comment"># Governance, development, ADRs, templates</span></a>
+          <a class="line" href="schemas/INDEX.md"><span class="folder">├── schemas/</span>                            <span class="comment"># Output schemas for all agents</span></a>
+          <a class="line" href="PIPELINE_MANIFEST.yaml"><span class="folder">└── pipeline-output/</span>                    <span class="comment"># Generated reports (runtime; declared in manifest)</span></a>
+        </div>
+      </article>
+
+      <article class="overview-column">
+        <h2>Core Documents</h2>
+        <div class="doc-list">
+          <a class="doc-link" href="AGENTS.md"><span class="doc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22z"/><path d="M20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22z"/></svg></span><span><span class="doc-name">AGENTS.md</span><span class="doc-desc">Operational rules for all agents.</span></span></a>
+          <a class="doc-link" href="NEW_PROJECT_BOOTSTRAP_CHECKLIST.md"><span class="doc-icon" aria-hidden="true" style="color:#ee3434"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="m9 12 2 2 4-5"/></svg></span><span><span class="doc-name">NEW_PROJECT_BOOTSTRAP_CHECKLIST.md</span><span class="doc-desc">Step-by-step project initialization.</span></span></a>
+          <a class="doc-link" href="docs/governance/TASK_DECLARATION_STANDARD.md"><span class="doc-icon" aria-hidden="true" style="color:#238bd1"><svg viewBox="0 0 24 24"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v5h5M9 11h6M9 15h6M9 19h5"/></svg></span><span><span class="doc-name">TASK_DECLARATION_STANDARD.md</span><span class="doc-desc">Required structure for all tasks and skills.</span></span></a>
+          <a class="doc-link" href="docs/governance/AUTHORITY_ORDER.md"><span class="doc-icon" aria-hidden="true" style="color:#227ac1"><svg viewBox="0 0 24 24"><path d="M12 3v17M7 6h10M5 20h14"/><path d="m7 6-4 7h8zm10 0-4 7h8z"/></svg></span><span><span class="doc-name">AUTHORITY_ORDER.md</span><span class="doc-desc">Defines what is authoritative and why.</span></span></a>
+          <a class="doc-link" href="VOCABULARY.md"><span class="doc-icon" aria-hidden="true" style="color:#e3a414"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M9 15v3h6v-3M10 21h4"/></svg></span><span><span class="doc-name">VOCABULARY.md</span><span class="doc-desc">Canonical project terminology.</span></span></a>
+          <a class="doc-link" href="contracts/CONTRACT.template.md"><span class="doc-icon" aria-hidden="true" style="color:#536a82"><svg viewBox="0 0 24 24"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v5h5M9 12h6M9 16h6"/></svg></span><span><span class="doc-name">CONTRACT.template.md</span><span class="doc-desc">Template for interface contracts.</span></span></a>
+          <a class="doc-link" href="SKILL_CATALOG.yaml"><span class="doc-icon" aria-hidden="true" style="color:#244d72"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1z"/></svg></span><span><span class="doc-name">SKILL_CATALOG.yaml</span><span class="doc-desc">All available reusable skills.</span></span></a>
+        </div>
+      </article>
+
+      <article class="overview-column">
+        <h2>Skills and Agents</h2>
+        <div class="cap-card skills">
+          <div class="cap-head"><span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 5 13h6l-1 9 8-12h-6z"/></svg></span><span><b>Skills</b><small>Reusable, task-focused procedures for common activities:</small></span></div>
+          <ul class="cap-list"><li><a href=".github/skills/architecture-review/SKILL.md">architecture-review</a></li><li><a href=".github/skills/contract-change/SKILL.md">contract-change</a></li><li><a href=".github/skills/testing-and-validation/SKILL.md">testing-and-validation</a></li><li><a href=".github/skills/completion-checkpoint/SKILL.md">completion-checkpoint</a></li><li><a href=".github/skills/artifact-package-verification/SKILL.md">artifact-package-verification</a></li><li><a href=".github/skills/backend-vertical-slice/SKILL.md">backend-vertical-slice</a></li><li><a href=".github/skills/frontend-vertical-slice/SKILL.md">frontend-vertical-slice</a></li><li><a href=".github/skills/prompt-change-review/SKILL.md">prompt-change-review</a></li><li><a href="SKILL_CATALOG.yaml">and more...</a></li></ul>
+        </div>
+        <div class="cap-card agents">
+          <div class="cap-head"><span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2.5 20v-3.5A4.5 4.5 0 0 1 7 12h2a4.5 4.5 0 0 1 4.5 4.5V20M13 13.2a4.5 4.5 0 0 1 2-.5h2a4.5 4.5 0 0 1 4.5 4.5V20"/></svg></span><span><b>Agents</b><small>Specialized, ongoing responsibilities:</small></span></div>
+          <ul class="cap-list"><li><a href="agents/inventory/AGENT_INVENTORY.md">inventory</a></li><li><a href="agents/security/AGENT_SECURITY.md">security</a></li><li><a href="agents/classification/AGENT_CLASSIFICATION.md">classification</a></li><li><a href="agents/formatting/AGENT_FORMATTING.md">formatting</a></li><li><a href="agents/consistency/AGENT_CONSISTENCY.md">consistency</a></li><li><a href="agents/documentation/AGENT_DOCUMENTATION.md">documentation</a></li><li><a href="agents/architecture/AGENT_ARCHITECTURE.md">architecture</a></li><li><a href="agents/governance/AGENT_GOVERNANCE.md">governance</a></li><li><a href="agents/drift/AGENT_DRIFT.md">drift</a></li><li><a href="agents/reporting/AGENT_REPORTING.md">reporting</a></li></ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="lower-grid">
+      <article class="panel">
+        <h2>Project Readiness</h2>
+        <div class="status-grid">
+          <div class="status"><span>Current phase</span><b>Foundation initialization</b></div>
+          <div class="status"><span>Current milestone</span><b>Project-specific bootstrap</b></div>
+          <div class="status"><span>Active work item</span><b>Complete bootstrap checklist</b></div>
+          <div class="status"><span>Next bounded task</span><b>Define objectives and vocabulary</b></div>
+        </div>
+        <div class="status-notice"><b>Pre-initialization.</b> Confirm live state in <a href="PROJECT_STATE.md"><u>PROJECT_STATE.md</u></a>. Implementation begins only after the bootstrap checklist records <code>READY_FOR_IMPLEMENTATION</code>.</div>
+      </article>
+      <article class="panel">
+        <h2>Framework Principles</h2>
+        <div class="principles"><span class="principle">Authority before implementation</span><span class="principle">Security before propagation</span><span class="principle">Contracts before convenience</span><span class="principle">One primary owner</span><span class="principle">Evidence before claims</span><span class="principle">Canonical vocabulary</span><span class="principle">Smallest coherent slice</span><span class="principle">Tests as evidence</span><span class="principle">Proposals remain proposals</span><span class="principle">Verify before repair</span><span class="principle">Preserve provenance</span><span class="principle">Stop after the task</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <span>Project Foundation Framework · A solid start for every agent-driven project</span>
+    <nav class="footer-links" aria-label="Footer navigation"><a href="README.md">README</a><a href="docs/development/DEVELOPMENT_WORKFLOW.md">Development</a><a href="docs/development/VALIDATION_GATES.md">Validation</a><a href="contracts/README.md">Contracts</a><a href="schemas/INDEX.md">Schemas</a></nav>
+  </footer>
+</div>
+</body>
+</html>

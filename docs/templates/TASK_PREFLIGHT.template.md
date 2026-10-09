@@ -1,19 +1,11 @@
 # Task Preflight
 
 ## Objective
-
 ## Authority read
-
-## Owning layer or specialist
-
+## Owning specialist or layer
 ## Immediate consumer
-
 ## Allowed scope
-
 ## Non-responsibilities
-
 ## Security directives
-
 ## Acceptance evidence
-
 ## Planned validation

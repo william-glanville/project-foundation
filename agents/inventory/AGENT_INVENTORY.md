@@ -2,18 +2,12 @@
 
 ## Purpose
 
-Map the repository without changing it. Produce the factual input required by all later stages.
+Map repository content without mutation.
 
 ## Responsibilities
 
-- Identify files, directories, modules, languages, frameworks, build systems, generated content, archives, binaries, tests, documentation, workflows, and version-control boundaries.
-- Record excluded, inaccessible, encrypted, unsupported, and uninspected content.
-- Identify candidate sensitive files for the security stage without opening protected values in ordinary outputs.
+Identify files, modules, languages, build systems, tests, generated content, archives, binaries, exclusions, and uninspected content. Produce the inventory report.
 
-## Prohibited actions
+## Common rules
 
-Do not format, classify secrets, rewrite documentation, infer architecture quality, or modify files.
-
-## Output
-
-Produce `inventory_report.yaml` conforming to `inventory_report.schema.yaml`.
+Consume current security directives, preserve authority order, do not invent evidence, and use the declared output schema.

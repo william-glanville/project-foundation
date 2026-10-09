@@ -2,7 +2,8 @@ schema:
   name: inventory_report
   version: '1.0'
   owner: inventory
-  description: Repository inventory report contract.
+  dependencies:
+  - report_metadata.schema.yaml
 root:
   type: object
   required:
@@ -17,12 +18,11 @@ root:
       required:
       - project_name
       - project_root
-      - summary
+      - files_scanned
+      - directories_scanned
       - languages
       - frameworks
-      - build_systems
       - excluded_paths
-      - generated_content
       - uninspected_content
       additional_properties: false
       properties:
@@ -30,52 +30,19 @@ root:
           type: string
         project_root:
           type: string
-        summary:
-          type: object
-          required:
-          - files_scanned
-          - directories_scanned
-          - files_total
-          - directories_total
-          properties:
-            files_scanned:
-              type: integer
-              minimum: 0
-            directories_scanned:
-              type: integer
-              minimum: 0
-            files_total:
-              type: integer
-              minimum: 0
-            directories_total:
-              type: integer
-              minimum: 0
+        files_scanned:
+          type: integer
+        directories_scanned:
+          type: integer
         languages:
           type: array
           items:
-            type: object
-            required:
-            - name
-            - file_count
-            properties:
-              name:
-                type: string
-              file_count:
-                type: integer
-                minimum: 0
+            type: string
         frameworks:
           type: array
           items:
             type: string
-        build_systems:
-          type: array
-          items:
-            type: string
         excluded_paths:
-          type: array
-          items:
-            type: string
-        generated_content:
           type: array
           items:
             type: string

@@ -2,7 +2,9 @@ schema:
   name: security_report
   version: '1.0'
   owner: security
-  description: security_report contract.
+  dependencies:
+  - report_metadata.schema.yaml
+  - finding.schema.yaml
 root:
   type: object
   required:
@@ -16,8 +18,9 @@ root:
       type: object
       required:
       - status
-      - scope
-      - summary
+      - working_tree_scanned
+      - history_scanned
+      - uninspected_artifacts
       - findings
       - directives_reference
       additional_properties: false
@@ -28,47 +31,12 @@ root:
           - pass
           - restricted
           - blocked
-        scope:
-          type: object
-          required:
-          - working_tree_scanned
-          - history_scanned
-          - archives_scanned
-          - uninspected_artifacts
-          properties:
-            working_tree_scanned:
-              type: boolean
-            history_scanned:
-              type: boolean
-            archives_scanned:
-              type: boolean
-            uninspected_artifacts:
-              type: integer
-              minimum: 0
-        summary:
-          type: object
-          required:
-          - critical
-          - high
-          - medium
-          - low
-          - informational
-          properties:
-            critical:
-              type: integer
-              minimum: 0
-            high:
-              type: integer
-              minimum: 0
-            medium:
-              type: integer
-              minimum: 0
-            low:
-              type: integer
-              minimum: 0
-            informational:
-              type: integer
-              minimum: 0
+        working_tree_scanned:
+          type: boolean
+        history_scanned:
+          type: boolean
+        uninspected_artifacts:
+          type: integer
         findings:
           type: array
           items:

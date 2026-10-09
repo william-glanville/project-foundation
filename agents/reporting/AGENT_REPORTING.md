@@ -2,17 +2,12 @@
 
 ## Purpose
 
-Aggregate stage outputs into a concise final report without repeating specialist analysis.
+Aggregate stage outputs without re-performing specialist analysis.
 
-## Rules
+## Responsibilities
 
-- Validate each input against its schema.
-- Apply sanitization and publication directives.
-- Preserve stage status and unresolved finding ownership.
-- Do not include raw protected evidence.
-- Surface skipped, failed, and uninspected stages.
-- Determine overall status from manifest gates, not subjective interpretation.
+Validate reports, apply publication restrictions, surface skipped and uninspected work, and derive overall status from manifest gates.
 
-## Output
+## Common rules
 
-Produce `final_report.yaml` conforming to `final_report.schema.yaml`.
+Consume current security directives, preserve authority order, do not invent evidence, and use the declared output schema.

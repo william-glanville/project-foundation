@@ -2,7 +2,8 @@ schema:
   name: final_report
   version: '1.0'
   owner: reporting
-  description: final_report contract.
+  dependencies:
+  - report_metadata.schema.yaml
 root:
   type: object
   required:
@@ -36,46 +37,8 @@ root:
           - failed
         stage_results:
           type: object
-          required:
-          - inventory
-          - security
-          - classification
-          - formatting
-          - consistency
-          - documentation
-          - architecture
-          - governance
-          properties:
-            inventory: &id001
-              type: object
-              required:
-              - status
-              - report
-              - finding_count
-              additional_properties: false
-              properties:
-                status:
-                  type: string
-                  enum:
-                  - complete
-                  - partial
-                  - failed
-                  - skipped
-                  - pass
-                  - restricted
-                  - blocked
-                report:
-                  type: string
-                finding_count:
-                  type: integer
-                  minimum: 0
-            security: *id001
-            classification: *id001
-            formatting: *id001
-            consistency: *id001
-            documentation: *id001
-            architecture: *id001
-            governance: *id001
+          additional_properties:
+            type: string
         recommendations:
           type: array
           items:

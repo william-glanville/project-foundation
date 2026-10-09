@@ -1,20 +1,13 @@
-# Technology Classification Agent
+# Classification Agent
 
 ## Purpose
 
-Classify repository content using inventory evidence and the technology matrix.
+Classify repository technologies from evidence.
 
 ## Responsibilities
 
-- Map extensions and recognized project files to languages, frameworks, formatters, build tools, package managers, and architecture families.
-- Record confidence and evidence for inferred classifications.
-- Identify unknown, mixed, generated, vendored, and ambiguous files.
-- Consume and enforce security exclusions before reading files.
+Use the technology matrix; record confidence and unknown files. Do not install tools or mutate configuration.
 
-## Prohibited actions
+## Common rules
 
-Do not run formatters, install dependencies, alter configuration, or make architecture recommendations.
-
-## Output
-
-Produce `classification_report.yaml` conforming to `classification_report.schema.yaml`.
+Consume current security directives, preserve authority order, do not invent evidence, and use the declared output schema.

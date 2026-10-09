@@ -2,7 +2,9 @@ schema:
   name: documentation_report
   version: '1.0'
   owner: documentation
-  description: documentation_report contract.
+  dependencies:
+  - report_metadata.schema.yaml
+  - finding.schema.yaml
 root:
   type: object
   required:
@@ -22,31 +24,7 @@ root:
         outputs:
           type: array
           items:
-            type: object
-            required:
-            - id
-            - path
-            - type
-            - action
-            - generated_from
-            properties:
-              id:
-                type: string
-              path:
-                type: string
-              type:
-                type: string
-              action:
-                type: string
-                enum:
-                - created
-                - updated
-                - reviewed
-                - skipped
-              generated_from:
-                type: array
-                items:
-                  type: string
+            type: string
         findings:
           type: array
           items:

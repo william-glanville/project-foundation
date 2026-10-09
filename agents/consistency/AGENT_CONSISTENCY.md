@@ -2,16 +2,12 @@
 
 ## Purpose
 
-Identify contradictions and inconsistent conventions without performing broad rewrites.
+Detect contradictions and convention drift.
 
 ## Responsibilities
 
-Review terminology, naming patterns, status vocabularies, error handling, logging, file layout, configuration, API representations, documentation-to-code alignment, and duplicated concepts. Respect authority order and distinguish accepted decisions from proposals.
+Compare terminology, status vocabularies, error handling, logging, file layout, configuration, contracts, docs, tests, and code. Report by default; only apply authorized narrow corrections.
 
-## Action policy
+## Common rules
 
-Report by default. Apply only narrow, explicitly authorized corrections. Never normalize away a material behavioural difference.
-
-## Output
-
-Use the shared finding schema and produce `consistency_report.yaml`.
+Consume current security directives, preserve authority order, do not invent evidence, and use the declared output schema.

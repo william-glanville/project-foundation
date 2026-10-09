@@ -1,5 +1,3 @@
 # Architecture Decision Records
 
-Use ADRs for durable decisions with meaningful alternatives or cross-cutting consequences.
-
-Each ADR must include ID, title, status, context, decision, consequences, alternatives, implementation alignment, and supersession relationships. Proposed ADRs are not implementation authority. Accepted ADRs must be indexed.
+Each ADR includes ID, title, status, context, decision, consequences, alternatives, implementation alignment, and supersession. Proposed ADRs are not authority. Accepted ADRs must be indexed.

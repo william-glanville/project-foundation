@@ -1,0 +1,56 @@
+schema:
+  name: drift_report
+  version: '1.0'
+  owner: drift
+  dependencies:
+  - report_metadata.schema.yaml
+  - finding.schema.yaml
+root:
+  type: object
+  required:
+  - report_metadata
+  - drift
+  additional_properties: false
+  properties:
+    report_metadata:
+      external_ref: report_metadata.schema.yaml#/definitions/report_metadata
+    drift:
+      type: object
+      required:
+      - scope
+      - findings
+      - summary
+      - reconciliation_status
+      additional_properties: false
+      properties:
+        scope:
+          type: array
+          items:
+            type: string
+        findings:
+          type: array
+          items:
+            external_ref: finding.schema.yaml#/definitions/finding
+        summary:
+          type: object
+          required:
+          - total
+          - open
+          - remediated
+          additional_properties: false
+          properties:
+            total:
+              type: integer
+              minimum: 0
+            open:
+              type: integer
+              minimum: 0
+            remediated:
+              type: integer
+              minimum: 0
+        reconciliation_status:
+          type: string
+          enum:
+          - aligned
+          - findings_open
+          - blocked

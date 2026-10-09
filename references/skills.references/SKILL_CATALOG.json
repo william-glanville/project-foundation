@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0",
+  "skills": [
+    {
+      "name": "architecture-review",
+      "path": "skills/architecture-review/SKILL.md",
+      "autonomous": true,
+      "layer": "L4"
+    },
+    {
+      "name": "adr-authoring",
+      "path": "skills/adr-authoring/SKILL.md",
+      "autonomous": false,
+      "layer": "L4"
+    },
+    {
+      "name": "backend-vertical-slice",
+      "path": "skills/backend-vertical-slice/SKILL.md",
+      "autonomous": true,
+      "layer": "L3"
+    },
+    {
+      "name": "frontend-vertical-slice",
+      "path": "skills/frontend-vertical-slice/SKILL.md",
+      "autonomous": true,
+      "layer": "L3/L5"
+    },
+    {
+      "name": "trace-prompt-review",
+      "path": "skills/trace-prompt-review/SKILL.md",
+      "autonomous": true,
+      "layer": "L2/L3"
+    },
+    {
+      "name": "audit-package-review",
+      "path": "skills/audit-package-review/SKILL.md",
+      "autonomous": false,
+      "layer": "L4"
+    },
+    {
+      "name": "testing-and-validation",
+      "path": "skills/testing-and-validation/SKILL.md",
+      "autonomous": true,
+      "layer": "cross-layer"
+    },
+    {
+      "name": "contract-change",
+      "path": "skills/contract-change/SKILL.md",
+      "autonomous": false,
+      "layer": "L1/L4"
+    },
+    {
+      "name": "package-verification",
+      "path": "skills/package-verification/SKILL.md",
+      "autonomous": false,
+      "layer": "L2/L4"
+    },
+    {
+      "name": "release-checkpoint",
+      "path": "skills/release-checkpoint/SKILL.md",
+      "autonomous": false,
+      "layer": "L5"
+    }
+  ]
+}

@@ -1,17 +1,65 @@
 pipeline:
-  name: project_sanitization_pipeline
-  version: "1.0"
-  objectives_file: PROJECT_OBJECTIVES.md
+  name: project_foundation_framework
+  version: '1.2'
+  initialization:
+    required: true
+    objectives_file: PROJECT_OBJECTIVES.md
+    bootstrap_template: PROJECT_OBJECTIVES.template.md
+  authority_inputs:
+    objectives:
+      required_after_initialization:
+      - PROJECT_OBJECTIVES.md
+      bootstrap:
+      - PROJECT_OBJECTIVES.template.md
+    governance:
+    - AGENTS.md
+    - docs/governance/AUTHORITY_ORDER.md
+    - docs/governance/DECISION_REGISTER.md
+    adr:
+    - docs/ADR/**
+    development:
+    - docs/development/**
+    agent_instructions:
+    - agents/**
+    github:
+    - .github/**
+    reference_material:
+    - references/**
+    non_authoritative:
+    - README.md
+    - MERGE_ASSESSMENT.md
+    - docs/templates/**
+    project_state:
+    - PROJECT_STATE.md
+    vocabulary:
+    - VOCABULARY.md
+    contracts:
+    - contracts/**
+    skills:
+    - SKILL_CATALOG.yaml
   execution_order:
-    - inventory
-    - security
-    - classification
-    - formatting
-    - consistency
-    - documentation
-    - architecture
-    - governance
-    - reporting
+  - inventory
+  - security
+  - classification
+  - formatting
+  - consistency
+  - documentation
+  - architecture
+  - governance
+  - drift
+  - reporting
+  runtime_directories:
+    root: pipeline-output
+    inventory: pipeline-output/inventory
+    security: pipeline-output/security
+    classification: pipeline-output/classification
+    formatting: pipeline-output/formatting
+    consistency: pipeline-output/consistency
+    documentation: pipeline-output/documentation
+    architecture: pipeline-output/architecture
+    governance: pipeline-output/governance
+    reporting: pipeline-output/reporting
+    drift: pipeline-output/drift
   stages:
     inventory:
       agent: agents/inventory/AGENT_INVENTORY.md
@@ -25,14 +73,14 @@ pipeline:
       directives_schema: schemas/sanitization_directives.schema.yaml
     classification:
       agent: agents/classification/AGENT_CLASSIFICATION.md
-      matrix: agents/classification/TECHNOLOGY_MATRIX.yaml
       output: pipeline-output/classification/classification_report.yaml
       schema: schemas/classification_report.schema.yaml
+      matrix: agents/classification/TECHNOLOGY_MATRIX.yaml
     formatting:
       agent: agents/formatting/AGENT_FORMATTING.md
-      rules: agents/formatting/code_formatting_rules.md
       output: pipeline-output/formatting/formatting_report.yaml
       schema: schemas/formatting_report.schema.yaml
+      rules: agents/formatting/code_formatting_rules.md
     consistency:
       agent: agents/consistency/AGENT_CONSISTENCY.md
       output: pipeline-output/consistency/consistency_report.yaml
@@ -49,24 +97,61 @@ pipeline:
       agent: agents/governance/AGENT_GOVERNANCE.md
       output: pipeline-output/governance/governance_report.yaml
       schema: schemas/governance_report.schema.yaml
+    drift:
+      agent: agents/drift/AGENT_DRIFT.md
+      output: pipeline-output/drift/drift_report.yaml
+      schema: schemas/drift_report.schema.yaml
     reporting:
       agent: agents/reporting/AGENT_REPORTING.md
       output: pipeline-output/reporting/final_report.yaml
       schema: schemas/final_report.schema.yaml
   gates:
     stop_when:
-      - security.status == blocked
+    - security.status == blocked
     restrict_when:
-      - security.status == restricted
+    - security.status == restricted
   shared_schemas:
-    finding: schemas/finding.schema.yaml
     report_metadata: schemas/report_metadata.schema.yaml
+    finding: schemas/finding.schema.yaml
     sanitization_directives: schemas/sanitization_directives.schema.yaml
+  schema_dependencies:
+    inventory_report:
+    - report_metadata.schema.yaml
+    security_report:
+    - report_metadata.schema.yaml
+    - finding.schema.yaml
+    - sanitization_directives.schema.yaml
+    classification_report:
+    - report_metadata.schema.yaml
+    formatting_report:
+    - report_metadata.schema.yaml
+    - finding.schema.yaml
+    consistency_report:
+    - report_metadata.schema.yaml
+    - finding.schema.yaml
+    documentation_report:
+    - report_metadata.schema.yaml
+    - finding.schema.yaml
+    architecture_report:
+    - report_metadata.schema.yaml
+    - finding.schema.yaml
+    governance_report:
+    - report_metadata.schema.yaml
+    - finding.schema.yaml
+    final_report:
+    - report_metadata.schema.yaml
+    drift_report:
+    - report_metadata.schema.yaml
+    - finding.schema.yaml
   principles:
-    - preserve_behaviour
-    - minimize_diff_size
-    - security_first
-    - respect_authority_order
-    - respect_repository_tooling
-    - produce_reproducible_results
-    - do_not_invent_evidence
+  - preserve_behaviour
+  - minimize_diff_size
+  - security_first
+  - respect_authority_order
+  - respect_repository_tooling
+  - produce_reproducible_results
+  - do_not_invent_evidence
+  - report_conflicts_not_assumptions
+  - canonical_vocabulary
+  - contract_authority
+  - drift_control

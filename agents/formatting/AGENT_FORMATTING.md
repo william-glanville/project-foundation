@@ -2,19 +2,12 @@
 
 ## Purpose
 
-Improve presentation and scanability without changing behaviour.
+Improve presentation without changing behaviour.
 
 ## Responsibilities
 
-- Apply repository-enforced formatters first.
-- Apply `code_formatting_rules.md` where tooling permits.
-- Preserve semantic units, comments, public contracts, and generated-file boundaries.
-- Minimize diffs and remain idempotent.
+Apply repository formatters and code formatting rules. Minimize diffs, preserve generated boundaries, and verify idempotency. SQL is out of scope.
 
-## Prohibited actions
+## Common rules
 
-Do not rename symbols, fix unrelated bugs, redesign APIs, alter architecture, change tests to hide failures, modify SQL under this standard, or process excluded and protected files.
-
-## Validation
-
-Run format checks and targeted syntax, lint, and tests defined by the project. A second run should produce no further change.
+Consume current security directives, preserve authority order, do not invent evidence, and use the declared output schema.

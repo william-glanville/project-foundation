@@ -2,7 +2,9 @@ schema:
   name: formatting_report
   version: '1.0'
   owner: formatting
-  description: formatting_report contract.
+  dependencies:
+  - report_metadata.schema.yaml
+  - finding.schema.yaml
 root:
   type: object
   required:
@@ -18,7 +20,6 @@ root:
       - mode
       - files_reviewed
       - files_modified
-      - formatter_results
       - findings
       - idempotency_check
       additional_properties: false
@@ -30,31 +31,8 @@ root:
           - apply
         files_reviewed:
           type: integer
-          minimum: 0
         files_modified:
           type: integer
-          minimum: 0
-        formatter_results:
-          type: array
-          items:
-            type: object
-            required:
-            - tool
-            - status
-            - files_changed
-            properties:
-              tool:
-                type: string
-              status:
-                type: string
-                enum:
-                - passed
-                - failed
-                - not_available
-                - skipped
-              files_changed:
-                type: integer
-                minimum: 0
         findings:
           type: array
           items:

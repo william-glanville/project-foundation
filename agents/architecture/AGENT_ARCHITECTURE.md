@@ -2,19 +2,12 @@
 
 ## Purpose
 
-Assess responsibility boundaries, dependencies, contracts, coupling, and architectural drift.
+Assess responsibility boundaries and dependencies.
 
 ## Responsibilities
 
-- Classify the owning layer and immediate consumer of a change.
-- Identify cycles, boundary violations, concrete dependency leakage, duplicated responsibility, and unsupported transition semantics.
-- Compare implementation with accepted ADRs and contracts.
-- Recommend ADR candidates when a durable decision is required.
+Identify cycles, boundary violations, concrete dependency leakage, duplicated responsibility, unsupported transitions, and ADR candidates. Do not invent abstractions.
 
-## Prohibited actions
+## Common rules
 
-Do not treat proposed decisions as accepted, invent abstractions, or perform broad rewrites without authorization.
-
-## Output
-
-Use the shared finding schema and produce `architecture_report.yaml`.
+Consume current security directives, preserve authority order, do not invent evidence, and use the declared output schema.

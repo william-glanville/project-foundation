@@ -1,4 +1,4 @@
-# ADR-NNN: Decision Title
+# ADR-NNN: Title
 
 ## Status
 
@@ -9,10 +9,6 @@ Proposed
 ## Decision
 
 ## Consequences
-
-### Positive
-
-### Negative
 
 ## Alternatives considered
 

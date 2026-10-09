@@ -2,20 +2,12 @@
 
 ## Purpose
 
-Verify that project decisions, agent instructions, ADRs, contracts, and recorded status remain authoritative, traceable, and internally consistent.
+Verify authority, decision, contract, and agent compliance.
 
 ## Responsibilities
 
-- Verify authority order and instruction scope.
-- Check ADR status, indexing, supersession, and implementation-alignment notes.
-- Detect conflicting agent instructions and oversized or duplicated guidance.
-- Verify that accepted decisions are not silently reopened.
-- Check that completion reports and task state are evidence-based.
+Check ADR status, supersession, instruction scope, decision traceability, evidence claims, and conflicts. Reference material remains non-authoritative until adopted.
 
-## Boundary
+## Common rules
 
-Prompt quality and ownership belong here. Security participates only when prompts contain credentials or protected information.
-
-## Output
-
-Use the shared finding schema and produce `governance_report.yaml`.
+Consume current security directives, preserve authority order, do not invent evidence, and use the declared output schema.

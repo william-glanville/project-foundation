@@ -1,8 +1,7 @@
 schema:
   name: report_metadata
   version: '1.0'
-  owner: pipeline-governance
-  description: Shared report metadata contract.
+  owner: governance
 root:
   ref: '#/definitions/report_metadata'
 definitions:
@@ -21,13 +20,10 @@ definitions:
         format: date-time
       run_id:
         type: string
-        min_length: 1
       agent:
         type: string
-        min_length: 1
       agent_version:
         type: string
-        min_length: 1
       status:
         type: string
         enum:

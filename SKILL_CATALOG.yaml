@@ -1,0 +1,46 @@
+catalog:
+  version: '1.2'
+  policy:
+    discovery_required: true
+    read_before_use: true
+    project_extensions_allowed: true
+  skills:
+  - id: security-review
+    owner: security
+    purpose: Scan for exposure risks and generate sanitization directives.
+    agent: agents/security/AGENT_SECURITY.md
+  - id: architecture-review
+    owner: architecture
+    purpose: Review boundaries, dependency direction, coupling, and architectural
+      drift.
+    agent: agents/architecture/AGENT_ARCHITECTURE.md
+  - id: adr-authoring
+    owner: governance
+    purpose: Create or revise ADRs with status, consequences, and implementation alignment.
+    guide: docs/templates/ADR.template.md
+  - id: contract-review
+    owner: governance
+    purpose: Review contract ownership, responsibilities, exclusions, compatibility,
+      and tests.
+    guide: contracts/CONTRACT.template.md
+  - id: testing-validation
+    owner: development
+    purpose: Select and execute targeted and regression validation gates.
+    guide: docs/development/VALIDATION_GATES.md
+  - id: schema-review
+    owner: governance
+    purpose: Check schema syntax, dependencies, enums, references, and manifest alignment.
+    guide: schemas/INDEX.md
+  - id: documentation-review
+    owner: documentation
+    purpose: Create factual documentation with source lineage and security restrictions.
+    agent: agents/documentation/AGENT_DOCUMENTATION.md
+  - id: consistency-review
+    owner: consistency
+    purpose: Detect cross-file terminology and representation contradictions.
+    agent: agents/consistency/AGENT_CONSISTENCY.md
+  - id: drift-review
+    owner: drift
+    purpose: Reconcile objectives, vocabulary, contracts, decisions, prompts, schemas,
+      tests, and implementation.
+    agent: agents/drift/AGENT_DRIFT.md

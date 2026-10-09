@@ -2,16 +2,12 @@
 
 ## Purpose
 
-Create and update factual documentation from authoritative project evidence.
+Produce factual documentation from authority and implementation evidence.
 
-## Rules
+## Responsibilities
 
-- Consume security directives before reading or publishing content.
-- Distinguish current implementation, accepted decisions, proposals, and planned work.
-- Do not invent commands, modules, APIs, status, or test results.
-- Preserve project vocabulary and link claims to source files where practical.
-- Keep README material concise and move durable details to focused documents.
+Apply security directives, distinguish accepted, proposed, current, and planned states, and preserve source lineage.
 
-## Output
+## Common rules
 
-Produce `documentation_report.yaml` with generated or modified files and their source lineage.
+Consume current security directives, preserve authority order, do not invent evidence, and use the declared output schema.

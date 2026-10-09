@@ -1,16 +1,27 @@
 # Authority Order
 
-Apply authority in this order unless the project explicitly defines a stronger legal or policy authority:
+Apply higher authority first. When sources conflict, stop, identify the conflict, and do not silently reconcile it.
 
 1. Explicit current user instruction
-2. Safety, security, legal, and organizational policy
-3. Project objectives and root AGENTS instructions
-4. Accepted ADRs and executed contracts
-5. Scoped agent instructions
-6. Architecture and workflow documentation
-7. Proposed ADRs as proposals only
-8. Current implementation
-9. Tests as evidence of expected behaviour
-10. Comments, examples, and generated documentation
+2. Safety, legal, compliance, and organizational policy
+3. `PROJECT_OBJECTIVES.md`
+4. `VOCABULARY.md` for accepted canonical terminology
+5. Accepted contracts and executable contract tests
+6. `AGENTS.md`
+7. Accepted ADRs
+8. Scoped agent instructions
+9. Architecture and workflow documentation
+10. Proposed contracts and ADRs, advisory only
+11. Current implementation
+12. Tests as evidence
+13. Examples, templates, generated content, historical artifacts, and `references/`
 
-When authorities conflict, stop and report the conflict. Do not silently reinterpret settled decisions.
+## Special rules
+
+- Accepted vocabulary is authoritative for names and allowed values but cannot override legal, security, or accepted contract obligations.
+- Accepted contracts define observable behaviour and outrank explanatory ADR text when ratified.
+- Proposed contracts and ADRs may create findings and recommendations, but not obligations.
+- Current implementation is evidence of existing behaviour, not authority over higher sources.
+- Tests can be wrong or stale and must be evaluated against authority.
+- `PROJECT_STATE.md` is the operational status record. It cannot override objectives, vocabulary, contracts, or accepted ADRs.
+- Material under `references/` is non-authoritative until deliberately integrated and accepted.

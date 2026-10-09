@@ -2,7 +2,8 @@ schema:
   name: classification_report
   version: '1.0'
   owner: classification
-  description: classification_report contract.
+  dependencies:
+  - report_metadata.schema.yaml
 root:
   type: object
   required:
@@ -18,58 +19,21 @@ root:
       - languages
       - frameworks
       - build_tools
-      - mappings
       - unknown_files
       additional_properties: false
       properties:
         languages:
           type: array
-          items: &id001
-            type: object
-            required:
-            - name
-            - file_count
-            - confidence
-            - evidence
-            additional_properties: false
-            properties:
-              name:
-                type: string
-              file_count:
-                type: integer
-                minimum: 0
-              confidence:
-                type: string
-                enum:
-                - confirmed
-                - high
-                - medium
-                - low
-              evidence:
-                type: array
-                items:
-                  type: string
+          items:
+            type: string
         frameworks:
           type: array
-          items: *id001
+          items:
+            type: string
         build_tools:
           type: array
-          items: *id001
-        mappings:
-          type: array
           items:
-            type: object
-            required:
-            - pattern
-            - language
-            - formatter_family
-            properties:
-              pattern:
-                type: string
-              language:
-                type: string
-              formatter_family:
-                type: string
+            type: string
         unknown_files:
           type: array
           items:

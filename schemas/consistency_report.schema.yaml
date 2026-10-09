@@ -2,7 +2,9 @@ schema:
   name: consistency_report
   version: '1.0'
   owner: consistency
-  description: consistency_report contract.
+  dependencies:
+  - report_metadata.schema.yaml
+  - finding.schema.yaml
 root:
   type: object
   required:
@@ -16,26 +18,12 @@ root:
       type: object
       required:
       - findings
-      - summary
+      - total
       additional_properties: false
       properties:
         findings:
           type: array
           items:
             external_ref: finding.schema.yaml#/definitions/finding
-        summary:
-          type: object
-          required:
-          - total
-          - open
-          - remediated
-          properties:
-            total:
-              type: integer
-              minimum: 0
-            open:
-              type: integer
-              minimum: 0
-            remediated:
-              type: integer
-              minimum: 0
+        total:
+          type: integer
